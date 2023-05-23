@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" preserveAspectRatio="none" style="display:inline-block;width:64px;height:64px;">
+    <!-- Camera Icon -->
+    <path d="M52,14H35.931l-2.121-2.121C33.611,11.58,33.357,11.3,33,11H19C17.895,11,17,11.895,17,13v6H7  C5.895,19,5,19.895,5,21v28c0,1.105,0.895,2,2,2h50c1.105,0,2-0.895,2-2V16C59,14.895,58.105,14,57,14z" fill="#707070"/>
+    <!-- Conversion Arrow -->
+    <path transform="translate(-20,0)" d="M32 34h12.172l-4.086-4.086L42 28l8 8-8 8-1.914-1.914L44.172 38H32v-4z" stroke-width="0" stroke="#dd7700" fill="#dd7700"/>
+    <!-- File Icon -->
+    <path d="M49 25H35a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V27a2 2 0 0 0-2-2z" fill="#afafaf"/>
+    <path d="M44 30v6m-3-3h6" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

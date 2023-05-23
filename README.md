@@ -1,4 +1,7 @@
-# camToMP4
+# camToMP4 <img style="display:inline-flex;width:64px;height:64px;vertical-align: middle;" src="./img/icon.svg">
+
+*logo by chatGPT*
+
 ![progress-example](./img/cam2mp4.png)
 
 `camToMP4` processes a folder with `.media` or similar files and converts them to mp4 and optionally a single merged `.mkv` file.
@@ -126,3 +129,6 @@ tree 1678488437_0120
 
 - By default, `.media` files are **sorted** and then processed. The `-e` option can be specified to another string to process instead of `media`.
 
+## PRs and Issues
+
+There is a shortened, commented version of the script inside `chatGPTcomments` folder. If you have any suggestions/features etc., send a PR. 
