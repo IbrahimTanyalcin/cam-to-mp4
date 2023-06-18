@@ -4,6 +4,7 @@ shopt -s extglob
 progName="${0}"
 scriptFolder="$( dirname ${BASH_SOURCE[0]} )"
 scriptName="$( basename ${BASH_SOURCE[0]} )"
+PWD=$(pwd) 
 #available arguments
 avArgs=(
     -m --mv --move 
@@ -134,6 +135,27 @@ then
     exit 1;
 fi
 
+function convertToAbs() {
+  if [ -z "$1" ]; then
+    issueWarning "No path provided"
+    exit 1;
+  fi
+  if [[ $1 = /* ]]; then
+    if [ -d "$1" ]; then
+      echo "$1";
+      return 0;
+    fi
+  else
+    local abs_path="$PWD/$1"
+    if [ -d "$abs_path" ]; then
+      echo "$abs_path";
+      return 0;
+    fi
+  fi
+  issueWarning "Path is not a dir or does not exist";
+  exit 1;
+}
+
 depsOK;
 
 for (( i=0; i<"${#args[@]}"; ++i ))
@@ -221,7 +243,7 @@ do
             noProgress=
         ;;
         !(--*|-*))
-            trgtFolder="${args[$i]}"
+            trgtFolder="$(convertToAbs "${args[$i]}")"
         ;;
         ?(-)-*)
             issueWarning "UNKNOWN OPTION %s" ${args[$i]}
@@ -233,7 +255,7 @@ done
 
 issueInfo "CD %s" "${trgtFolder}"
 #do not do [[ -z "$dryRun" ]] &&, report if the folder does not exist
-cd "${trgtFolder}" || issueWarning "%s does not seem to exist" "${trgtFolder}";
+cd "${trgtFolder}" || { issueWarning "%s does not seem to exist" "${trgtFolder}" && exit 1; };
 j=0;
 k=$(find . -maxdepth 1 -mindepth 1 ! -name '.*' -type d | wc -l)
 for d in */; do
